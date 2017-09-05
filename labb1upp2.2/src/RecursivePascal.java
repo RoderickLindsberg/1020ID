@@ -1,4 +1,4 @@
-public class RecursivePascal {
+public class RecursivePascal implements Pascal{
 
     //this variable indicates the line number. It starts at line 0 and prints 1, ... line 3 and prints 1 2 1 etc.
     public int whichLine = 0;
@@ -38,9 +38,10 @@ public class RecursivePascal {
                 for (int k = 0; k < n + 1; k++) {
                     //the triangle is symmetric
                     if (k > n/2) {
-                        System.out.print(binom(n, k - n/2) + "\t");
+                        System.out.print(binom(n, n - k) + "\t");
                     } else {
-                        System.out.print(binom(n, k) + "\t");
+
+                        System.out.print(binom(n, n - k) + "\t");
                     }
 
                 }

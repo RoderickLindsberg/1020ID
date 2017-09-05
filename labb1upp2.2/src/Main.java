@@ -4,22 +4,23 @@ public class Main {
         //this is the first test
         long startTime = System.currentTimeMillis();
 
-        RecursivePascal testPascal = new RecursivePascal();
-        testPascal.printPascal(39);
+        RecursivePascal myRecursivePascal = new RecursivePascal();
+        myRecursivePascal.printPascal(10);
         System.out.println();
 
         long stopTime = System.currentTimeMillis();
-        System.out.println("The cache-enabled program takes " + (stopTime - startTime) + " ms.\n");
+        System.out.println("The recursive program takes " + (stopTime - startTime) + " ms.\n");
 
 
 
         //this is another test
         startTime = System.currentTimeMillis();
 
-        testPascal.printPascalSlowly(29);
+        IterativePascal myIterativePascal = new IterativePascal();
+        myIterativePascal.printPascal(10);
         System.out.println();
 
         stopTime = System.currentTimeMillis();
-        System.out.println("The no-cache program takes " + (stopTime - startTime) + " ms.");
+        System.out.println("The iterative program takes " + (stopTime - startTime) + " ms.");
     }
 }
