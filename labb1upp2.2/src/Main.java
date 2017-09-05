@@ -8,7 +8,6 @@ public class Main {
         testPascal.printPascal(39);
         System.out.println();
 
-
         long stopTime = System.currentTimeMillis();
         System.out.println("The cache-enabled program takes " + (stopTime - startTime) + " ms.\n");
 
@@ -17,13 +16,10 @@ public class Main {
         //this is another test
         startTime = System.currentTimeMillis();
 
-
         testPascal.printPascalSlowly(29);
         System.out.println();
 
-
         stopTime = System.currentTimeMillis();
         System.out.println("The no-cache program takes " + (stopTime - startTime) + " ms.");
-
     }
 }

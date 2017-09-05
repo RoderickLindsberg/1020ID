@@ -1,10 +1,10 @@
 public class RecursivePascal {
+
     //this variable indicates the line number. It starts at line 0 and prints 1, ... line 3 and prints 1 2 1 etc.
     public int whichLine = 0;
     //when false, prints out the triangle upside down.
     boolean isIncrementing = true;
-
-
+    //create a array-cache
     int[][] myArrayCache = new int[100][100];
 //    RecursivePascal(int n) {
 //        int[][] myArrayCache = new int[n][n];
@@ -17,10 +17,11 @@ public class RecursivePascal {
         } else if (k == 1 | n - k == 1) {
             return n;
         }
-
+        //cache hit
         if (myArrayCache[n][k] != 0){
             return myArrayCache[n][k];
         } else {
+            //cache miss
             myArrayCache[n][k] = binom(n - 1, k - 1) + binom(n - 1, k);
             return myArrayCache[n][k];
         }
@@ -35,7 +36,7 @@ public class RecursivePascal {
             if (n == whichLine) {
                 //Prints out all numbers in a line (example 1 2 1 when whichLine == 2)
                 for (int k = 0; k < n + 1; k++) {
-
+                    //the triangle is symmetric
                     if (k > n/2) {
                         System.out.print(binom(n, k - n/2) + "\t");
                     } else {
@@ -46,10 +47,10 @@ public class RecursivePascal {
                 System.out.println();
                 whichLine++;
 
-                //if not, call binom and store the return value in the array
-
             } else {
+                //goes recursively all the way to the first line n = 0
                 printPascal(n - 1);
+                //then print rows down to n
                 printPascal(n);
             }
 
@@ -65,6 +66,7 @@ public class RecursivePascal {
                     }
                 }
                 System.out.println();
+                //goes recursively to the bottom row
                 printPascal(n - 1);
             }
     }
