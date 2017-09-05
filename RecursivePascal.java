@@ -5,7 +5,7 @@ public class RecursivePascal {
     boolean isIncrementing = true;
 
 
-    int[][] myArrayCache = new int[40][40];
+    int[][] myArrayCache = new int[100][100];
 //    RecursivePascal(int n) {
 //        int[][] myArrayCache = new int[n][n];
 //    }
@@ -35,14 +35,20 @@ public class RecursivePascal {
             if (n == whichLine) {
                 //Prints out all numbers in a line (example 1 2 1 when whichLine == 2)
                 for (int k = 0; k < n + 1; k++) {
-                    System.out.print(binom(n, k) + "\t");
+
+                    if (k > n/2) {
+                        System.out.print(binom(n, k - n/2) + "\t");
+                    } else {
+                        System.out.print(binom(n, k) + "\t");
+                    }
+
                 }
                 System.out.println();
                 whichLine++;
 
                 //if not, call binom and store the return value in the array
 
-            } else{
+            } else {
                 printPascal(n - 1);
                 printPascal(n);
             }
@@ -51,7 +57,12 @@ public class RecursivePascal {
             //(else if) runs when isIncrementing is false
             if (n >= 0) {
                 for (int k = 0; k < n + 1; k++) {
-                    System.out.print(binom(n, k) + "\t");
+                    //the triangle is symmetric
+                    if (k > n/2) {
+                        System.out.print(binom(n, k - n/2) + "\t");
+                    } else {
+                        System.out.print(binom(n, k) + "\t");
+                    }
                 }
                 System.out.println();
                 printPascal(n - 1);
