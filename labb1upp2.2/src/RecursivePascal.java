@@ -1,4 +1,4 @@
-public class RecursivePascal implements Pascal{
+public class RecursivePascal extends ErrorPascal{
 
     //this variable indicates the line number. It starts at line 0 and prints 1, ... line 3 and prints 1 2 1 etc.
     public int whichLine = 0;
@@ -6,12 +6,17 @@ public class RecursivePascal implements Pascal{
     boolean isIncrementing = true;
     //create a array-cache
     int[][] myArrayCache = new int[100][100];
+
 //    RecursivePascal(int n) {
 //        int[][] myArrayCache = new int[n][n];
 //    }
 
     //this method calculate which number to be print out, when provided "coordinates" n and k
     public int binom(int n, int k) {
+
+        if (!evilChecker(n, k)){
+            return 0;
+        }
         if (k == 0 | k == n) {
             return 1;
         } else if (k == 1 | n - k == 1) {
@@ -31,7 +36,6 @@ public class RecursivePascal implements Pascal{
 
     //this method prints out a Pascal triangle in a slower way
     public void printPascal(int n) {
-
         if (isIncrementing) {
             if (n == whichLine) {
                 //Prints out all numbers in a line (example 1 2 1 when whichLine == 2)
