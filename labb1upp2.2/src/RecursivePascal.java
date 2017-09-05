@@ -6,6 +6,8 @@ public class RecursivePascal extends ErrorPascal{
     boolean isIncrementing = true;
     //create a array-cache
     int[][] myArrayCache = new int[100][100];
+    int errorCode = 0;
+
 
 //    RecursivePascal(int n) {
 //        int[][] myArrayCache = new int[n][n];
@@ -14,9 +16,13 @@ public class RecursivePascal extends ErrorPascal{
     //this method calculate which number to be print out, when provided "coordinates" n and k
     public int binom(int n, int k) {
 
-        if (!evilChecker(n, k)){
-            return 0;
+        //check n and k for errors
+        if(evilChecker(n, k) == -1){
+            //error, code -1
+            errorCode = -1;
+            return errorCode;
         }
+        //no error, continues
         if (k == 0 | k == n) {
             return 1;
         } else if (k == 1 | n - k == 1) {
@@ -35,7 +41,16 @@ public class RecursivePascal extends ErrorPascal{
 
 
     //this method prints out a Pascal triangle in a slower way
-    public void printPascal(int n) {
+    public int printPascal(int n) {
+
+        //invalid n, error -1
+        if(evilChecker(n, n) == -1){
+            //error, code -1
+            errorCode = -1;
+            System.out.println("Error: ");
+            return -1;
+        }
+        //no error, continues
         if (isIncrementing) {
             if (n == whichLine) {
                 //Prints out all numbers in a line (example 1 2 1 when whichLine == 2)
@@ -74,6 +89,7 @@ public class RecursivePascal extends ErrorPascal{
                 //goes recursively to the bottom row
                 printPascal(n - 1);
             }
+        return 0;
     }
 
 

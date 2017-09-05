@@ -1,6 +1,6 @@
-public class IterativePascal implements Pascal{
+public class IterativePascal extends ErrorPascal{
     boolean isIncrementing = false;
-
+    int errorCode = 0;
 
     public int factorial (int n) {
         int product = 1;
@@ -20,14 +20,30 @@ public class IterativePascal implements Pascal{
             return n;
         }
 
+        //check n and k for errors
+        if(evilChecker(n, k) == -1){
+            //error, code -1
+            errorCode = -1;
+            return errorCode;
+        }
+        //no error, continues
         taljare = factorial(n);
         namnare = factorial(k) * (factorial(n - k));
         return taljare/namnare;
 
     }
 
-    public void printPascal(int n) {
+    public int printPascal(int n) {
 
+
+        //invalid n, error -1
+        if(evilChecker(n, n) == -1){
+            //error, code -1
+            errorCode = -1;
+            System.out.println("Error: ");
+            return -1;
+        }
+        //no error, continues
         if (isIncrementing) {
             for (int i = 0; i <= n; i++) {
                 for (int k = 0; k <= i; k++) {
@@ -45,5 +61,6 @@ public class IterativePascal implements Pascal{
                 System.out.println();
             }
         }
+        return 0;
     }
 }
