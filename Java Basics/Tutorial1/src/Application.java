@@ -27,5 +27,13 @@ public class Application {
         System.out.println(myChar);
         System.out.println(myBoolean);
         System.out.println(myByte);
+
+
+        //String is a class
+        String text = "Hello";
+        String blank = " ";
+        String name = "Adam";
+        String greeting = text + blank + name;
+        System.out.println(greeting);
     }
 }
