@@ -18,6 +18,7 @@ public class Application {
         //byte
         byte myByte = 127;
 
+        System.out.println("Primitive types");
 
         System.out.println(number);
         System.out.println(myShort);
@@ -28,12 +29,20 @@ public class Application {
         System.out.println(myBoolean);
         System.out.println(myByte);
 
-
+        System.out.println("\n");
+        System.out.println("String type");
         //String is a class
         String text = "Hello";
         String blank = " ";
         String name = "Adam";
         String greeting = text + blank + name;
         System.out.println(greeting);
+
+        System.out.println("\n");
+        System.out.println("Playing with loops");
+        boolean statement = 6 > 3;
+        if (statement) {
+            System.out.println("6 > 3 is " + statement);
+        }
     }
 }
