@@ -1,5 +1,7 @@
 public class Application {
     public static void main(String[] args) {
+
+        System.out.println("Primitive types");
         //primitive types in Java
         //int   32-bit-number
         int number = 10;
@@ -18,8 +20,6 @@ public class Application {
         //byte
         byte myByte = 127;
 
-        System.out.println("Primitive types");
-
         System.out.println(number);
         System.out.println(myShort);
         System.out.println(myLong);
@@ -29,6 +29,8 @@ public class Application {
         System.out.println(myBoolean);
         System.out.println(myByte);
 
+
+
         System.out.println("\n");
         System.out.println("String type");
         //String is a class
@@ -37,6 +39,8 @@ public class Application {
         String name = "Adam";
         String greeting = text + blank + name;
         System.out.println(greeting);
+
+
 
         System.out.println("\n");
         System.out.println("Playing with loops");
@@ -50,5 +54,9 @@ public class Application {
             System.out.println("The value of i is " + i);
             i ++;
         }
+
+
+
+        
     }
 }
