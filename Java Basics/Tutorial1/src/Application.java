@@ -44,5 +44,11 @@ public class Application {
         if (statement) {
             System.out.println("6 > 3 is " + statement);
         }
+
+        int i = 0;
+        while (i < 10) {
+            System.out.println("The value of i is " + i);
+            i ++;
+        }
     }
 }
