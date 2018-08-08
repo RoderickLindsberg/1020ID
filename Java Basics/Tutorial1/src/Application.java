@@ -57,6 +57,9 @@ public class Application {
 
 
 
-        
+        System.out.println("\nFor-loops");
+        for (;;) {
+            System.out.println("for-loop no...");
+        }
     }
 }
