@@ -55,8 +55,6 @@ public class Application {
             i ++;
         }
 
-
-
         System.out.println("\nFor-loops");
         for (int j = 0; j < 5; j++) {
             //%d means int
@@ -64,5 +62,10 @@ public class Application {
         }
 
 
+
+        System.out.println("\nIf-statement");
+        boolean cond = 4 == 3;
+        //check if 4 is equal to 3
+        System.out.println(cond);
     }
 }
