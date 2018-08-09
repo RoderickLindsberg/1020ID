@@ -43,7 +43,7 @@ public class Application {
 
 
         System.out.println("\n");
-        System.out.println("Playing with loops");
+        System.out.println("Playing with while-loops");
         boolean statement = 6 > 3;
         if (statement) {
             System.out.println("6 > 3 is " + statement);
@@ -54,6 +54,15 @@ public class Application {
             System.out.println("The value of i is " + i);
             i ++;
         }
+
+        int whileLoopI = 0;
+        while (whileLoopI < 5) {
+            System.out.println("Looping: " + whileLoopI);
+            if (whileLoopI == 5) break;
+            whileLoopI ++;
+        }
+
+
 
         System.out.println("\nFor-loops");
         for (int j = 0; j < 5; j++) {
