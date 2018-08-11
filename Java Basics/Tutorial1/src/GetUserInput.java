@@ -14,5 +14,13 @@ public class GetUserInput {
         //Tell the user what was entered
         System.out.println("You entered: " + line);
 
+
+        //Test getting a double value
+        System.out.println("Please enter a number with decimals");
+
+        double myDoubleValue = input.nextDouble();
+
+        System.out.println("The number you enter was " + myDoubleValue);
+
     }
 }
