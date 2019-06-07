@@ -46,8 +46,13 @@ public class PerimeterAssignmentRunner {
     }
 
     public double getLargestX(Shape s) {
-        // Put code here
-        return 0.0;
+        double largestX = 0;
+        for (Point p : s.getPoints() ) {
+            if (p.getX() > largestX) {
+                largestX = p.getX();
+            }
+        }
+        return largestX;
     }
 
     public double getLargestPerimeterMultipleFiles() {
@@ -76,6 +81,9 @@ public class PerimeterAssignmentRunner {
 
         double longestSide = getLargestSide(s);
         System.out.println("The longest side is " + longestSide);
+
+        double largestX = getLargestX(s);
+        System.out.println("The largest x-coordinate is " + largestX);
     }
 
     public void testPerimeterMultipleFiles() {
