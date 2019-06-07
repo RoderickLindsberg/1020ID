@@ -62,6 +62,9 @@ public class PerimeterAssignmentRunner {
         Shape s = new Shape(fr);
         double length = getPerimeter(s);
         System.out.println("perimeter = " + length);
+
+        int totalPoints = getNumPoints(s);
+        System.out.println("The shape has " + totalPoints + " points");
     }
 
     public void testPerimeterMultipleFiles() {
