@@ -2,6 +2,7 @@ import edu.duke.*;
 import java.io.File;
 
 public class PerimeterAssignmentRunner {
+    //The getPerimeter method has one parameter s of type Shape. Given a shape, this method returns the perimeter of the shape.
     public double getPerimeter (Shape s) {
         // Start with totalPerim = 0
         double totalPerim = 0.0;
@@ -20,9 +21,13 @@ public class PerimeterAssignmentRunner {
         return totalPerim;
     }
 
+    //This method returns an integer that is the number of points in Shape s
     public int getNumPoints (Shape s) {
-        // Put code here
-        return 0;
+        int totalPoints = 0;
+        for (Point p : s.getPoints() ) {
+            totalPoints ++;
+        }
+        return totalPoints;
     }
 
     public double getAverageLength(Shape s) {
@@ -51,6 +56,7 @@ public class PerimeterAssignmentRunner {
         return temp.getName();
     }
 
+    //This method is used to select a data file by using the FileResource class, create a shape based on the points from that data file, and then calculate the perimeter of the shape and output its value.
     public void testPerimeter () {
         FileResource fr = new FileResource();
         Shape s = new Shape(fr);
