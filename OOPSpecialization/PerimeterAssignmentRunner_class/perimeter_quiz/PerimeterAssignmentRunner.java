@@ -55,6 +55,7 @@ public class PerimeterAssignmentRunner {
         return largestX;
     }
 
+    // read several files and returns the largest perimeter
     public double getLargestPerimeterMultipleFiles() {
         DirectoryResource dr = new DirectoryResource();
         double largestPerimeter = 0;
@@ -93,10 +94,13 @@ public class PerimeterAssignmentRunner {
 
         double largestX = getLargestX(s);
         System.out.println("The largest x-coordinate is " + largestX);
+
+        testPerimeterMultipleFiles();
     }
 
+    // Testing function getLargestPerimeterMultipleFiles()
     public void testPerimeterMultipleFiles() {
-        // Put code here
+        System.out.println("The largest perimeter is " + getLargestPerimeterMultipleFiles());
     }
 
     public void testFileWithLargestPerimeter() {
