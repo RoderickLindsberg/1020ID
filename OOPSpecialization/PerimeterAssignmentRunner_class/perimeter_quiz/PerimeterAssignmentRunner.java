@@ -114,8 +114,9 @@ public class PerimeterAssignmentRunner {
         System.out.println("The largest perimeter is " + getLargestPerimeterMultipleFiles());
     }
 
+    // Call getFileWithLargestPerimeter. For the File that is returned, print the name of that file.
     public void testFileWithLargestPerimeter() {
-        // Put code here
+        System.out.println("The file which describes the shape with the largest perimeter is " + getFileWithLargestPerimeter());
     }
 
     // This method creates a triangle that you can use to test your other methods
