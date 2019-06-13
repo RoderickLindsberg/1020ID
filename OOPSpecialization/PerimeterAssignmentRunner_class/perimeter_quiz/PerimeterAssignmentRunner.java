@@ -70,9 +70,20 @@ public class PerimeterAssignmentRunner {
         return largestPerimeter;
     }
 
+    // Create its own Directory Resource, except that this new method returns the File that has the largest such perimeter
     public String getFileWithLargestPerimeter() {
-        // Put code here
-        File temp = null;    // replace this code
+        DirectoryResource dr = new DirectoryResource();
+        File temp = null;
+        double largestPerimeter = 0;
+
+        for (File f : dr.selectedFiles()) {
+            FileResource fr = new FileResource(f);
+            Shape s = new Shape(fr);
+            double perimeter = getPerimeter(s);
+            if (perimeter > largestPerimeter) {
+                temp = f;
+            }
+        }
         return temp.getName();
     }
 
