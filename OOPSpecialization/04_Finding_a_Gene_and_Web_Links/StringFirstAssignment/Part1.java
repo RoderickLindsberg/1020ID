@@ -7,17 +7,16 @@
 
 import edu.duke.*;
 public class Part1 {
-    private boolean validateDNA (dna) {
+
+    private boolean validateDNA (String dna) {
         if (dna.length() % 3 == 0) {
             return true;
         } else return false;
     }
-    private String findSimpleGene( String dna) {
+
+    private String findSimpleGene(String dna) {
         // start codon is ATG
         // stop codon is TAA
-        if (!validateDNA(dna)) {
-            return "";
-        }
         int pos;
         int indexStartCodon = dna.indexOf("ATG");
         if (indexStartCodon == -1) {
@@ -29,7 +28,12 @@ public class Part1 {
             return "";
         }
 
-        return dna.substring(indexStartCodon, indexStopCodon + 3);
+        String gene = dna.substring(indexStartCodon, indexStopCodon + 3);
+        if (!validateDNA(gene)) {
+            return "";
+        }
+
+        return gene;
     }
 
     // Five DNA strings:
@@ -40,10 +44,13 @@ public class Part1 {
     //  DNA with ATG, TAA and the substring between them is not a multiple of 3.
     public void testSimpleGene() {
         String[] dnaArray = {"ZZZTAAZZZ", "ZZZATGZZZ", "ZZZ", "ZZZATGZTAAZZZ", "ZZZATGZZZTAA"};
+
         for (String dna : dnaArray) {
             System.out.println("Testing DNA string: " + dna);
 
+            // calling findSimpleGene() to get gene
             String res = findSimpleGene(dna);
+            
             if (res == "") {
                 System.out.println("Bummer! No gene is found..");
             } else System.out.println("DNA found: " + res);
@@ -53,7 +60,7 @@ public class Part1 {
     public static void main (String[] args){
         Part1 geneFinder = new Part1();
         String dna = "TTTATGZZZZZZTAA";
-        System.out.println("Gene found: " + geneFinder.findSimpleGene(dna));
+        System.out.println("Gene found in DNA: " + geneFinder.findSimpleGene(dna));
         geneFinder.testSimpleGene();
     }
 }
