@@ -7,16 +7,29 @@
 
 import edu.duke.*;
 public class Part1 {
-    public String findSimpleGene (String dna) {
-      int startCodon = dna.indexOf("ATG");
-      int stopCodon = dna.indexOf("TAA",startCodon+3);
-      if ( startCodon ==-1){
-          return "";
-      }
-      if (stopCodon == -1){
-          return "";
-      }
-      return dna.substring(startCodon,stopCodon+3);
+    private boolean validateDNA (dna) {
+        if (dna.length() % 3 == 0) {
+            return true;
+        } else return false;
+    }
+    private String findSimpleGene( String dna) {
+        // start codon is ATG
+        // stop codon is TAA
+        if (!validateDNA(dna)) {
+            return "";
+        }
+        int pos;
+        int indexStartCodon = dna.indexOf("ATG");
+        if (indexStartCodon == -1) {
+            return "";
+        }
+
+        int indexStopCodon = dna.indexOf("TAA", indexStartCodon + 3);
+        if (indexStopCodon == -1) {
+            return "";
+        }
+
+        return dna.substring(indexStartCodon, indexStopCodon + 3);
     }
 
     // Five DNA strings:
