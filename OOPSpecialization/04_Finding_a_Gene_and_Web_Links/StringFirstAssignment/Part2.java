@@ -13,16 +13,16 @@ public class Part2 {
         } else return false;
     }
 
-    private String findSimpleGene(String dna) {
+    private String findSimpleGene(String dna, String startCodon, String stopCodon) {
         // start codon is ATG
         // stop codon is TAA
         int pos;
-        int indexStartCodon = dna.indexOf("ATG");
+        int indexStartCodon = dna.indexOf(startCodon);
         if (indexStartCodon == -1) {
             return "";
         }
 
-        int indexStopCodon = dna.indexOf("TAA", indexStartCodon + 3);
+        int indexStopCodon = dna.indexOf(stopCodon, indexStartCodon + 3);
         if (indexStopCodon == -1) {
             return "";
         }
@@ -48,7 +48,7 @@ public class Part2 {
             System.out.println("Testing DNA string: " + dna);
 
             // calling findSimpleGene() to get gene
-            String res = findSimpleGene(dna);
+            String res = findSimpleGene(dna, "ATG", "TAA");
             
             if (res == "") {
                 System.out.println("Bummer! No gene is found..");
