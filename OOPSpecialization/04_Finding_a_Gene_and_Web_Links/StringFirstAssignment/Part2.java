@@ -1,10 +1,10 @@
-
 /**
  * Write a description of Part2 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ *
+ * @author R.K.
+ * @version 1.0
  */
+
 public class Part2 {
     
     private boolean validateDNA (String dna) {
@@ -14,6 +14,15 @@ public class Part2 {
     }
 
     private String findSimpleGene(String dna, String startCodon, String stopCodon) {
+        // wrapping case sensetivity
+        if (dna.toUpperCase().equals(dna)) {
+            startCodon = startCodon.toUpperCase();
+            stopCodon = stopCodon.toUpperCase();
+        } else {
+            startCodon = startCodon.toLowerCase();
+            stopCodon = stopCodon.toLowerCase();
+        }
+
         // start codon is ATG
         // stop codon is TAA
         int pos;
@@ -34,7 +43,7 @@ public class Part2 {
 
         return gene;
     }
-    
+
     // Five DNA strings:
     //  DNA with no “ATG”
     //  DNA with no “TAA”
@@ -42,14 +51,14 @@ public class Part2 {
     //  DNA with ATG, TAA and the substring between them is a multiple of 3 (a gene)
     //  DNA with ATG, TAA and the substring between them is not a multiple of 3.
     public void testSimpleGene() {
-        String[] dnaArray = {"ZZZTAAZZZ", "ZZZATGZZZ", "ZZZ", "ZZZATGZTAAZZZ", "ZZZATGZZZTAA"};
+        String[] dnaArray = {"ZZZTAAZZZ", "ZZZATGZZZ", "ZZZ", "ZZZATGZTAAZZZ", "ZZZATGZZZTAA", "zzzatgzzztaa"};
 
         for (String dna : dnaArray) {
             System.out.println("Testing DNA string: " + dna);
 
             // calling findSimpleGene() to get gene
             String res = findSimpleGene(dna, "ATG", "TAA");
-            
+
             if (res == "") {
                 System.out.println("Bummer! No gene is found..");
             } else System.out.println("DNA found: " + res);
