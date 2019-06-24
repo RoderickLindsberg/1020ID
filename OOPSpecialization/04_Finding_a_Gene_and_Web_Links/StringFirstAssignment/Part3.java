@@ -30,7 +30,12 @@ public class Part3 {
     }
 
     public void test() {
+        System.out.println("\ntesting twoOccurrences..");
         System.out.println(twoOccurrences("by","A story by Abby Long"));
+
+        System.out.println("\ntesting lastPart..");
+        System.out.println(lastPart("by","A story by Abby Long"));
+        System.out.println(lastPart("by","forest"));
 
     }
 
