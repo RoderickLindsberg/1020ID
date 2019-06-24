@@ -33,4 +33,17 @@ public class Part3 {
         System.out.println(twoOccurrences("by","A story by Abby Long"));
 
     }
+
+    //This method finds the first occurrence of stringa in stringb, and returns the part of stringb that follows stringa.
+    public String lastPart(String stringa, String stringb) {
+        int indexStart = stringb.indexOf(stringa);
+        //no match
+        if (indexStart == -1) {
+            return stringb;
+        }
+        String stringbMatch = stringb.substring(indexStart, indexStart + stringa.length());
+        if (stringa.equals(stringbMatch)) {
+            return stringb.substring(indexStart + stringa.length());
+        } else return "error";
+    }
 }
