@@ -14,7 +14,10 @@ public class Part4 {
 
         for (String word : ur.words()) {
             if (word.indexOf("youtube.com") != -1) {
-                System.out.println(word);
+                int indexFirstQuote = word.indexOf("\"");
+                int indexLastQuote = word.lastIndexOf("\"");
+                //+1 to escape the first quotation mark
+                System.out.println(word.substring(indexFirstQuote+1, indexLastQuote));
             }
         }
     }
